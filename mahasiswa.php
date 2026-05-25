@@ -13,16 +13,16 @@
 
 <table border="1" cellspacing="0" cellpadding="10">
     <tr>
-        <td><a href="index.html">Home</a></td>
-        <td><a href="profile.html">Profile</a></td>
-        <td><a href="contact.html">Contact</a></td>
-        <td><a href="mahasiswa.html">Data Mahasiswa</a></td>
+        <td><a href="index.php">Home</a></td>
+        <td><a href="profile.php">Profile</a></td>
+        <td><a href="contact.php">Contact</a></td>
+        <td><a href="mahasiswa.php">Data Mahasiswa</a></td>
     </tr>
 </table>
 
 <h2>data mahasiswa</h2>
 
-<a href="inputdata.html">
+<a href="inputdata.php">
     <button>tambah data</button>
 </a>
 
@@ -30,11 +30,14 @@
 
 <table border="1" cellspacing="5" cellpadding="10">
     <tr>
-        <th rowspan="2">No</th>
-        <th rowspan="2">Nama</th>
-        <th rowspan="2">NIM</th>
-        <th rowspan="2">Foto</th>
-        <th colspan="3">Nilai</th>
+        <th >No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>jurusan</th>
+        <th>email</th>
+        <th >no.hp</th>
+        <th>foto</th>
+        <th>aksi</th>
     </tr>
     <tr>
         <th>UTS</th>
@@ -44,11 +47,21 @@
     <tr>
         <td align="center">1</td>
         <td>cantona</td>
-        <td>13182420033</td>
-        <td>
-            <img src="hi.png" width="100">
-        </td>
-        <td align="center">85</td>
+        <td align="center">13182420033</td>
+        <td align="center">informatika</td>
+        <td align="center">cantona@example.com</td>
+        <td align="center">08123456789</td>
+        <td align="center"><img src="assets/images/cantona.jpg" alt="foto cantona" width="100px"></td>
+        <td> <a href="editdata.php">
+            <button>edit</button> | <a href="hapusdata.php"><button>hapus</button></a>  
+    </tr>
+</table>
+
+<hr>
+
+<table border="1" cellspacing="5">
+<tr>
+    <td>1,1</td>
         <td align="center">90</td>
         <td align="center">88</td>
     </tr>
