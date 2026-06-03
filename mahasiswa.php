@@ -1,25 +1,10 @@
 <?php
 
-$connection = mysqli_connect("localhost", "root", "", "dithoweekly-a");
+$conn = mysqli_connect("localhost","root","","dithoweekly-a");
 
-if ($connection) {
+$data = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
-    echo "Koneksi berhasil";
-
-    $query = "SELECT * FROM mahasiswa";
-
-    $result = mysqli_query($connection, $query);
-
-    // mysqli_fetch_array
-    // mysqli_fetch_assoc
-    // mysqli_fetch_object
-    // mysqli_fetch_row
-
-} else {
-
-    echo "Koneksi gagal";
-
-}
+$no = 1;
 
 ?>
 
@@ -61,48 +46,50 @@ if ($connection) {
         <th>No</th>
         <th>Nama</th>
         <th>NIM</th>
-        <th>Jurusan</th>
-        <th>Email</th>
-        <th>No HP</th>
-        <th>Foto</th>
-        <th>Aksi</th>
+        <th>jurusan</th>
+        <th>email</th>
+        <th >no.hp</th>
+        <th>foto</th>
+        <th>aksi</th>
+    </tr>
+    <tr>
+        <th>UTS</th>
+        <th>UAS</th>
+        <th>TUGAS</th>
     </tr>
 
-    <?php 
-    $i = 1;
-    while($mhs = mysqli_fetch_assoc($result)) : 
-    ?>
+    <?php while($row = mysqli_fetch_assoc($data)) : ?>
 
     <tr>
 
         <td align="center">
-            <?= $i++; ?>
+            <?= $no++; ?>
+        </td>
+
+        <td>
+            <?= $row['nama']; ?>
         </td>
 
         <td align="center">
-            <?= $mhs['nama']; ?>
+            <?= $row['nim']; ?>
         </td>
 
         <td align="center">
-            <?= $mhs['nim']; ?>
+            <?= $row['jurusan']; ?>
         </td>
 
         <td align="center">
-            <?= $mhs['jurusan']; ?>
+            <?= $row['email']; ?>
         </td>
 
         <td align="center">
-            <?= $mhs['email']; ?>
-        </td>
-
-        <td align="center">
-            <?= $mhs['no_hp']; ?>
+            <?= $row['no_hp']; ?>
         </td>
 
         <td align="center">
 
             <img 
-                src="assets/images/<?= $mhs['foto']; ?>" 
+                src="assets/images/<?= $row['foto']; ?>" 
                 alt="foto mahasiswa"
                 width="100px"
             >
@@ -111,14 +98,14 @@ if ($connection) {
 
         <td align="center">
 
-            <a href="editdata.php?id=<?= $mhs['id']; ?>">
+            <a href="editdata.php?id=<?= $row['id']; ?>">
                 <button>Edit</button>
             </a>
 
             |
 
             <a 
-                href="hapusdata.php?id=<?= $mhs['id']; ?>"
+                href="hapusdata.php?id=<?= $row['id']; ?>"
                 onclick="return confirm('Yakin ingin menghapus data?')"
             >
                 <button>Hapus</button>
@@ -127,9 +114,44 @@ if ($connection) {
         </td>
 
     </tr>
+</table>
 
-    <?php endwhile; ?>
+<hr>
 
+<table border="1" cellspacing="5">
+<tr>
+    <td>1,1</td>
+    <td>1,2</td>
+    <td>1,3</td>
+    <td>1,4</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="5">
+<tr>
+    <td>1,1</td>
+    <td>1,2</td>
+    <td>1,3</td>
+    <td>1,4</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="5">
+<tr>
+    <td>1,1</td>
+    <td>1,2</td>
+    <td>1,3</td>
+    <td>1,4</td>
+</tr>
+</table>
+
+<table border="1" cellspacing="5">
+<tr>
+    <td>1,1</td>
+    <td>1,2</td>
+    <td>1,3</td>
+    <td>1,4</td>
+</tr>
 </table>
 
 </body>
