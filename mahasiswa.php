@@ -1,10 +1,25 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","dithoweekly-a");
+$connection = mysqli_connect("localhost", "root", "", "dithoweekly-a");
 
-$data = mysqli_query($conn, "SELECT * FROM mahasiswa");
+if ($connection) {
 
-$no = 1;
+    echo "Koneksi berhasil";
+
+    $query = "SELECT * FROM mahasiswa";
+
+    $result = mysqli_query($connection, $query);
+
+    // mysqli_fetch_array
+    // mysqli_fetch_assoc
+    // mysqli_fetch_object
+    // mysqli_fetch_row
+
+} else {
+
+    echo "Koneksi gagal";
+
+}
 
 ?>
 
@@ -53,38 +68,41 @@ $no = 1;
         <th>Aksi</th>
     </tr>
 
-    <?php while($row = mysqli_fetch_assoc($data)) : ?>
+    <?php 
+    $i = 1;
+    while($mhs = mysqli_fetch_assoc($result)) : 
+    ?>
 
     <tr>
 
         <td align="center">
-            <?= $no++; ?>
-        </td>
-
-        <td>
-            <?= $row['nama']; ?>
+            <?= $i++; ?>
         </td>
 
         <td align="center">
-            <?= $row['nim']; ?>
+            <?= $mhs['nama']; ?>
         </td>
 
         <td align="center">
-            <?= $row['jurusan']; ?>
+            <?= $mhs['nim']; ?>
         </td>
 
         <td align="center">
-            <?= $row['email']; ?>
+            <?= $mhs['jurusan']; ?>
         </td>
 
         <td align="center">
-            <?= $row['no_hp']; ?>
+            <?= $mhs['email']; ?>
+        </td>
+
+        <td align="center">
+            <?= $mhs['no_hp']; ?>
         </td>
 
         <td align="center">
 
             <img 
-                src="assets/images/<?= $row['foto']; ?>" 
+                src="assets/images/<?= $mhs['foto']; ?>" 
                 alt="foto mahasiswa"
                 width="100px"
             >
@@ -93,14 +111,14 @@ $no = 1;
 
         <td align="center">
 
-            <a href="editdata.php?id=<?= $row['id']; ?>">
+            <a href="editdata.php?id=<?= $mhs['id']; ?>">
                 <button>Edit</button>
             </a>
 
             |
 
             <a 
-                href="hapusdata.php?id=<?= $row['id']; ?>"
+                href="hapusdata.php?id=<?= $mhs['id']; ?>"
                 onclick="return confirm('Yakin ingin menghapus data?')"
             >
                 <button>Hapus</button>
