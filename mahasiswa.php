@@ -46,12 +46,13 @@ $no = 1;
         <th>No</th>
         <th>Nama</th>
         <th>NIM</th>
-        <th>jurusan</th>
-        <th>email</th>
-        <th >no.hp</th>
-        <th>foto</th>
-        <th>aksi</th>
+        <th>Jurusan</th>
+        <th>Email</th>
+        <th>No HP</th>
+        <th>Foto</th>
+        <th>Aksi</th>
     </tr>
+
     <tr>
         <th>UTS</th>
         <th>UAS</th>
@@ -114,44 +115,53 @@ $no = 1;
         </td>
 
     </tr>
+
+    <?php endwhile; ?>
+
 </table>
 
 <hr>
 
 <table border="1" cellspacing="5">
-<tr>
-    <td>1,1</td>
-    <td>1,2</td>
-    <td>1,3</td>
-    <td>1,4</td>
-</tr>
+    <tr>
+        <td>1,1</td>
+        <td>1,2</td>
+        <td>1,3</td>
+        <td>1,4</td>
+    </tr>
 </table>
 
-<table border="1" cellspacing="5">
-<tr>
-    <td>1,1</td>
-    <td>1,2</td>
-    <td>1,3</td>
-    <td>1,4</td>
-</tr>
-</table>
+<br>
 
 <table border="1" cellspacing="5">
-<tr>
-    <td>1,1</td>
-    <td>1,2</td>
-    <td>1,3</td>
-    <td>1,4</td>
-</tr>
+    <tr>
+        <td>1,1</td>
+        <td>1,2</td>
+        <td>1,3</td>
+        <td>1,4</td>
+    </tr>
 </table>
 
+<br>
+
 <table border="1" cellspacing="5">
-<tr>
-    <td>1,1</td>
-    <td>1,2</td>
-    <td>1,3</td>
-    <td>1,4</td>
-</tr>
+    <tr>
+        <td>1,1</td>
+        <td>1,2</td>
+        <td>1,3</td>
+        <td>1,4</td>
+    </tr>
+</table>
+
+<br>
+
+<table border="1" cellspacing="5">
+    <tr>
+        <td>1,1</td>
+        <td>1,2</td>
+        <td>1,3</td>
+        <td>1,4</td>
+    </tr>
 </table>
 
 </body>
