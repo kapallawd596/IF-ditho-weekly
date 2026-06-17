@@ -1,10 +1,9 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","dithoweekly-a");
+require 'fungsi.php';
 
-$data = mysqli_query($conn, "SELECT * FROM mahasiswa");
-
-$no = 1;
+$qmahasiswa = "SELECT * FROM mahasiswa";
+$mahasiswas = tampildata($qmahasiswa);
 
 ?>
 
@@ -13,10 +12,9 @@ $no = 1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahasiswa</title>
+    <title>Data Mahasiswa</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <h1>WEB INFORMATIKA</h1>
@@ -32,6 +30,8 @@ $no = 1;
     </tr>
 </table>
 
+<br>
+
 <h2>Data Mahasiswa</h2>
 
 <a href="inputdata.php">
@@ -40,8 +40,7 @@ $no = 1;
 
 <br><br>
 
-<table border="1" cellspacing="5" cellpadding="10">
-
+<table border="1" cellspacing="0" cellpadding="10">
     <tr>
         <th>No</th>
         <th>Nama</th>
@@ -53,115 +52,48 @@ $no = 1;
         <th>Aksi</th>
     </tr>
 
-    <tr>
-        <th>UTS</th>
-        <th>UAS</th>
-        <th>TUGAS</th>
-    </tr>
-
-    <?php while($row = mysqli_fetch_assoc($data)) : ?>
+    <?php
+    $i = 1;
+    foreach ($mahasiswas as $mhs) :
+    ?>
 
     <tr>
+        <td align="center"><?= $i++; ?></td>
+
+        <td><?= $mhs["nama"]; ?></td>
+
+        <td align="center"><?= $mhs["nim"]; ?></td>
+
+        <td align="center"><?= $mhs["jurusan"]; ?></td>
+
+        <td align="center"><?= $mhs["email"]; ?></td>
+
+        <td align="center"><?= $mhs["no_hp"]; ?></td>
 
         <td align="center">
-            <?= $no++; ?>
-        </td>
-
-        <td>
-            <?= $row['nama']; ?>
-        </td>
-
-        <td align="center">
-            <?= $row['nim']; ?>
-        </td>
-
-        <td align="center">
-            <?= $row['jurusan']; ?>
-        </td>
-
-        <td align="center">
-            <?= $row['email']; ?>
-        </td>
-
-        <td align="center">
-            <?= $row['no_hp']; ?>
-        </td>
-
-        <td align="center">
-
-            <img 
-                src="assets/images/<?= $row['foto']; ?>" 
-                alt="foto mahasiswa"
-                width="100px"
+            <img
+                src="assets/images/<?= $mhs["foto"]; ?>"
+                alt="Foto Mahasiswa"
+                width="70px"
             >
-
         </td>
 
         <td align="center">
-
-            <a href="editdata.php?id=<?= $row['id']; ?>">
-                <button>Edit</button>
+            <a href="editdata.php?id=<?= $mhs["id"]; ?>">
+                <button>EDIT</button>
             </a>
 
             |
 
-            <a 
-                href="hapusdata.php?id=<?= $row['id']; ?>"
-                onclick="return confirm('Yakin ingin menghapus data?')"
-            >
-                <button>Hapus</button>
+            <a href="hapusdata.php?id=<?= $mhs["id"]; ?>"
+               onclick="return confirm('Yakin ingin menghapus data?')">
+                <button>HAPUS</button>
             </a>
-
         </td>
-
     </tr>
 
-    <?php endwhile; ?>
+    <?php endforeach; ?>
 
-</table>
-
-<hr>
-
-<table border="1" cellspacing="5">
-    <tr>
-        <td>1,1</td>
-        <td>1,2</td>
-        <td>1,3</td>
-        <td>1,4</td>
-    </tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="5">
-    <tr>
-        <td>1,1</td>
-        <td>1,2</td>
-        <td>1,3</td>
-        <td>1,4</td>
-    </tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="5">
-    <tr>
-        <td>1,1</td>
-        <td>1,2</td>
-        <td>1,3</td>
-        <td>1,4</td>
-    </tr>
-</table>
-
-<br>
-
-<table border="1" cellspacing="5">
-    <tr>
-        <td>1,1</td>
-        <td>1,2</td>
-        <td>1,3</td>
-        <td>1,4</td>
-    </tr>
 </table>
 
 </body>

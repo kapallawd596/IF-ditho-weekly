@@ -1,37 +1,37 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","dithoweekly-a");
+require "fungsi.php";
 
-if(isset($_POST['submit'])){
+if(isset($_POST["submit"]))
+{
+    $query = "INSERT INTO mahasiswa VALUES
+    (NULL,
+    '$_POST[nama]',
+    '$_POST[nim]',
+    '$_POST[jurusan]',
+    '$_POST[email]',
+    '$_POST[no_hp]',
+    '')";
 
-    $nama     = $_POST['nama'];
-    $nim      = $_POST['nim'];
-    $jurusan  = $_POST['jurusan'];
-    $email    = $_POST['email'];
-    $no_hp    = $_POST['no_hp'];
-
-    $foto = $_FILES['foto']['name'];
-    $tmp  = $_FILES['foto']['tmp_name'];
-
-    move_uploaded_file($tmp, "assets/images/" . $foto);
-
-    mysqli_query($conn,
-    "INSERT INTO mahasiswa
-    (nama,nim,jurusan,email,no_hp,foto)
-
-    VALUES
-
-    (
-        '$nama',
-        '$nim',
-        '$jurusan',
-        '$email',
-        '$no_hp',
-        '$foto'
-    )");
-
-    header("Location: mahasiswa.php");
-    exit;
+    mysqli_query($koneksi, $query);
+    if (mysqli_affected_rows($koneksi) > 0) 
+    {
+    echo "
+    <script>
+        alert('Data berhasil ditambahkan!');
+        document.location.href='mahasiswa.php';
+    </script>
+    ";
+    }
+    else
+    {
+        echo "
+        <script>
+            alert('Data gagal ditambahkan!');
+            document.location.href='mahasiswa.php';
+        </script>
+        ";
+    }
 }
 
 ?>
