@@ -1,34 +1,25 @@
+
 <?php
 
 require "fungsi.php";
 
 if(isset($_POST["submit"]))
 {
-    $query = "INSERT INTO mahasiswa VALUES
-    (NULL,
-    '$_POST[nama]',
-    '$_POST[nim]',
-    '$_POST[jurusan]',
-    '$_POST[email]',
-    '$_POST[no_hp]',
-    '')";
-
-    mysqli_query($koneksi, $query);
-    if (mysqli_affected_rows($koneksi) > 0) 
+    if(inputdata($_POST) > 0)
     {
-    echo "
-    <script>
-        alert('Data berhasil ditambahkan!');
-        document.location.href='mahasiswa.php';
-    </script>
-    ";
+        echo "
+        <script>
+            alert('Data berhasil ditambahkan!');
+            document.location.href='mahasiswa.php';
+        </script>
+        ";
     }
     else
     {
         echo "
         <script>
             alert('Data gagal ditambahkan!');
-            document.location.href='mahasiswa.php';
+            document.location.href='inputdata.php';
         </script>
         ";
     }
@@ -91,7 +82,7 @@ if(isset($_POST["submit"]))
         <tr>
             <td><label for="foto">Foto</label></td>
             <td>
-                <input type="file" name="foto" id="foto">
+                <input type="file" name="foto" id="foto" required>
             </td>
         </tr>
 

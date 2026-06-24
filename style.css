@@ -120,28 +120,31 @@ ul li {
 
 
 /* HALAMAN PROFILE */
-
+.profile-photo{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    display: block;
+    margin: 20px auto;
+}
 .profile-container {
     width: 80%;
-    margin: 30px auto;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    margin: 20px auto;
     background-color: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-.profile-container img {
-    width: 150px;
-    border-radius: 10px;
-}
-
 .profile-text {
-    flex: 1;
+    text-align: center;
 }
 
+.profile-text ul {
+    list-style-position: inside;
+}
 /* HALAMAN FORM */
 
 .form-page form table {

@@ -52,10 +52,8 @@ $mahasiswas = tampildata($qmahasiswa);
         <th>Aksi</th>
     </tr>
 
-    <?php
-    $i = 1;
-    foreach ($mahasiswas as $mhs) :
-    ?>
+    <?php $i = 1; ?>
+    <?php foreach ($mahasiswas as $mhs) : ?>
 
     <tr>
         <td align="center"><?= $i++; ?></td>
@@ -71,11 +69,16 @@ $mahasiswas = tampildata($qmahasiswa);
         <td align="center"><?= $mhs["no_hp"]; ?></td>
 
         <td align="center">
-            <img
-                src="assets/images/<?= $mhs["foto"]; ?>"
-                alt="Foto Mahasiswa"
-                width="70px"
-            >
+            <?php if (!empty($mhs["foto"])) : ?>
+                <img
+                    src="assets/images/<?= $mhs["foto"]; ?>"
+                    alt="Foto Mahasiswa"
+                    width="80"
+                    height="80"
+                >
+            <?php else : ?>
+                Tidak ada foto
+            <?php endif; ?>
         </td>
 
         <td align="center">
@@ -83,10 +86,10 @@ $mahasiswas = tampildata($qmahasiswa);
                 <button>EDIT</button>
             </a>
 
-            |
+            <br><br>
 
             <a href="hapusdata.php?id=<?= $mhs["id"]; ?>"
-               onclick="return confirm('Yakin ingin menghapus data?')">
+               onclick="return confirm('Yakin ingin menghapus data ini?');">
                 <button>HAPUS</button>
             </a>
         </td>
